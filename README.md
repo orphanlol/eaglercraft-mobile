@@ -1,7 +1,7 @@
 # Eaglercraft Mobile UI
- A revamp of FlamedDogo99's eaglercraft mobile UI using pocked edition UI.<br>
+ A revamp of FlamedDogo99's eaglercraft mobile UI using pocket edition UI.<br>
  Currently **STILL IN BETA** testing/making so expect some bugs!
-
+ Currently works in almost every version of Eaglercraft, with some caveats
 <hr>
 
 ## Implementation
