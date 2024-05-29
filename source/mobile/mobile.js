@@ -36,8 +36,9 @@ function shiftKey(state) {
 function mouseEvent(number, state, canvas) {
   canvas.dispatchEvent(new PointerEvent(state, {"button": number}))
 }
-// POINTERLOCK
+// POINTERLOCK STUFF
 // When requestpointerlock is called, this dispatches an event, saves the requested element to window.fakelock, and unhides the touch controls
+
 window.fakelock = null;
 
 Element.prototype.requestPointerLock = function() {
@@ -58,7 +59,8 @@ Object.defineProperty(document, "pointerLockElement", {
     return window.fakelock;
   }
 });
-// When exitPointerLock is called, this dispatches an event, clears the
+
+// When exitPointerLock is called, this dispatches an event (remove the word clears the because was cut off)
 document.exitPointerLock = function() {
     window.fakelock = null
     document.dispatchEvent(new Event('pointerlockchange'));
@@ -89,8 +91,8 @@ document.exitFullscreen = function() {
 }
 
 // FILE UPLOADING
-// Safari doesn't recognize the element.click() used to display the file uplaoder as an action performed by the user, so it ignores it.
-// This hijacks the element.createElement() function to add the file upload to the DOM, so the user can manually press the button again.
+// Safari doesn't recognize the element.click() used to display the file uploader as an action performed by the user, so it ignores it.
+// This hijacks the element.createElement() function to add the file upload to the DOM, so the user can manually press the button again. (basically mitigating the above)
 var oldCreate = document.createElement;
 document.createElement = function(type) {
   this.oldCreate = oldCreate;
@@ -223,7 +225,7 @@ function insertCanvasElements() {
         previousY = null; 
     }, false)
     // Adds all of the touch screen controls
-    // Theres probably a better way to do this but this works for now
+    // There's probably a better way to do this but this works for now
     var forwardButton = document.createElement('button');
 	forwardButton.id = "hideButton"
 	forwardButton.style.cssText = "left:14vh;bottom:22vh;background:url(mobile/uiUp.png) no-repeat center;background-size: contain, cover;"
